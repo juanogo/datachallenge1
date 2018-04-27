@@ -21,10 +21,10 @@ public class Parser {
     public String getLine(Message message) {
         String line = "";
         line = line.concat(message.getTimestamp().getSeconds() + ":" + message.getTimestamp().getNanoseconds());
-        line = line.concat("," + message.isId());
-        line = line.concat("," + message.getConfidence());
-        line = line.concat("," + message.getNormalizedPosX());
-        line = line.concat("," + message.getNormalizedPosY());
+        line = line.concat("," + (message.isId() ? "1" : "0"));
+        line = line.concat("," + String.format("%.0f", message.getConfidence()));
+        line = line.concat("," + String.format("%.0f", message.getNormalizedPosX()));
+        line = line.concat("," + String.format("%.0f", message.getNormalizedPosY()));
         line = line.concat("," + message.getPupilDiameter());
         return line;
     }

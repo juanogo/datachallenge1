@@ -14,9 +14,9 @@ import Utilities.Sockets;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Stat Receive");
+        System.out.println("-- Start Receive --");
         String workingDir = System.getProperty("user.dir");
-        System.out.println(workingDir);
+        System.out.println("Directory where the file will be create: " + workingDir);
         // Start the listening process
         Sockets listenMessages = new Sockets();
         listenMessages.receiveMessage();

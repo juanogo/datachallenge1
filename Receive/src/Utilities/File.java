@@ -28,8 +28,10 @@ public class File {
     /**
      * Open the file and add the new line
      * @param line 
+     * @return  
      */
-    public void addLine(String line) {
+    public boolean addLine(String line) {
+        boolean success = false;
         FileWriter fileWriter = null;
         try {
             String workingDir = System.getProperty("user.dir");
@@ -38,6 +40,7 @@ public class File {
             bufferedWriter.write(line);
             bufferedWriter.newLine();
             bufferedWriter.close();
+            success = true;
         } catch (IOException ex) {
             System.out.println("Error (IOException): " + ex.getMessage());
         } finally {
@@ -49,5 +52,6 @@ public class File {
                 System.out.println("Error (IOException): " + ex.getMessage());
             }
         }
+        return success;
     }
 }
